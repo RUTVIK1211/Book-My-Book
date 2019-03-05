@@ -11,7 +11,7 @@ if (isset($conn))
 {
     $q = mysqli_query($conn,"SELECT * FROM login");
     $result = mysqli_num_rows($q);
-    if($result >0) 
+    if($result > 0) 
     {
        	while ($record=mysqli_fetch_array($q))
     	 {
@@ -21,7 +21,7 @@ if (isset($conn))
                 $flag = 1;
                 $_SESSION['user']= "$user";
                 $_SESSION['time'] = time();
-                $_SESSION['login_id'] = $result['Login_id'];
+                $_SESSION['login_id'] = $record['Login_id'];
     			header("Location: index.php?welcome='$user'");
     		  }
     		else
@@ -30,7 +30,7 @@ if (isset($conn))
         	}
         }
     }
-    if($flag == 0)
+    elseif($flag == 0)
      {
       header("Location: login.php?error");
      } 

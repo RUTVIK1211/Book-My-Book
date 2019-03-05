@@ -1,3 +1,4 @@
+
 <!DOCTYPE html >
 <html lang="en"  >
     <head>
@@ -70,10 +71,23 @@
                                 <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                             </ul>
                             <ul class="top_right">
-                                <li class="user" id="tool" data-toggle="tooltip" title="Login" data-placement="auto"><a href="login.php" ><i class="icon-user icons"></i></a></li>
-                                <li class="cart" id="tool"><a href="shopping-cart.php"><i class="icon-handbag icons"></i></a></li>
-                                <li class="h_price">    
-                                </li>
+                                <?php 
+                                    if (isset($_SESSION['user'])) 
+                                    {
+                                    echo "  <li class='user' id='tool1' data-toggle='toolti' title='Login' data-placement='auto'><a href='login.php' ><i class='icon-user icons'></i></a></li>
+                                <li class='cart' id='tool1'><a href='shopping-cart.php'><i class='icon-handbag icons'></i></a></li>
+                                <li class='h_price'>    
+                                </li>";
+                                    }
+                                    else
+                                    {
+                                      echo "  <li class='user' id='tool' data-toggle='toolti' title='Login' data-placement='auto'><a href='login.php' ><i class='icon-user icons'></i></a></li>
+                                <li class='cart' id='tool'><a href='shopping-cart.php'><i class='icon-handbag icons'></i></a></li>
+                                <li class='h_price'>    
+                                </li>";
+                                    }
+                                 ?>
+                                
                             </ul>
                         </div>
                     </div>

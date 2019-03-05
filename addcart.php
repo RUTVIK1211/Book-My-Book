@@ -12,28 +12,23 @@
             $price = $row['b_price'];
             $img = $row['b_img'];
             $customerid = $_SESSION['login_id'];
-
-
-            echo "$id\t $bid\t $pname\t $price\t $img\t $customerid";
-
-            
-            //try 
-           // {
-            //    $sql1 = "INSERT INTO cart(cart_id,b_id,c_id,product_name,quantity,price,img) VALUES(0,$bid,$customerid,$pname,1,$price,'$img')";
-             //   $result1 = mysqli_query($conn,$sql1);
-              //  if (isset($result1)) 
-               // {
-                //    header("Location: shopping-cart.php?cid=$customerid");
-               // }
-                //else
-                //{
-                 //   echo "<script>alert('Something Went Wrong..')<script>";
-                //}
-           // }   
-            //catch (Exception $e) 
-            //{
-             //   echo($e->getmessage());    
-           // }
+            try 
+            {
+                $sql1 = "INSERT INTO cart(cart_id,b_id,c_id,product_name,quantity,price,img) VALUES(0,$bid,$customerid,'$pname',1,$price,'$img')";
+                $result1 = mysqli_query($conn,$sql1);
+                if (isset($result1)) 
+                {
+                   header("Location: shopping-cart.php?cid=$customerid");
+                }
+                else
+                {
+                    echo "<script>alert('Something Went Wrong..')<script>";
+                }
+           }   
+            catch (Exception $e) 
+            {
+                echo($e->getmessage());    
+            }
         }
         else
         {

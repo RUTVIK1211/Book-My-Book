@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION['user']))
 {
-    if(time() - $_SESSION['time'] > 10) 
+    if(time() - $_SESSION['time'] > 100) 
     {
         session_destroy();
        header("Location: login.php");

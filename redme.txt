@@ -1,0 +1,13 @@
+This BOOKMYBOOK is PHP based weballpication
+
+What You required..
+	1)Web Browser (javascript Enabled)
+	2)Apache Server
+	3)Phpmyadmin Panel
+
+What We Use..
+	PHP7
+	Javascript
+	Jquary
+	Mysql
+	

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2019 at 06:24 PM
+-- Generation Time: Mar 06, 2019 at 08:28 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -50,7 +50,7 @@ INSERT INTO `book` (`b_id`, `b_name`, `b_publisher`, `b_edition`, `b_isbn`, `b_p
 (3, 'Science Std 9', 'NCERT', '2016-17', '9788174504', 218, 165, 'book/Science Std 9.jpg', 'NCERT', 'Language: English \r\nBinding: Paperback\r\n'),
 (4, 'English Class 10', 'NCERT', '2016-17', '9788174506', 364, 140, 'book/English Class 10.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback,'),
 (5, ' Science Class 10', 'NCERT', '2017-18', '9788174506', 282, 165, 'book/ Science Class 10.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback,'),
-(6, ' Science Class 10', 'NCERT', '2017-18', '9788174506', 282, 165, 'book/ Science Class 10.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback,'),
+(6, 'Science Class 10', 'NCERT', '2017-18', '9788174506', 282, 165, 'book/ Science Class 10.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback,'),
 (7, 'Chemistry Class 11 Part-1', 'NCERT', '2018-19', '9788174504', 255, 155, 'book/Chemistry Class 11 Part-1.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
 (8, 'Chemistry Class 11 Part-2', 'NCERT', '2018-19', '9788174505', 421, 105, 'book/Chemistry Class 11 Part-2.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
 (9, 'Physics Class 11 Part-1', 'NCERT', '2018-19', '9788174505', 220, 130, 'book/Physics Class 11 Part-1.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
@@ -59,6 +59,33 @@ INSERT INTO `book` (`b_id`, `b_name`, `b_publisher`, `b_edition`, `b_isbn`, `b_p
 (13, 'Maths Class 12 Part-2', 'NCERT', '2018-19', '9788174506', 622, 400, 'book/Maths Class 12 Part-2.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
 (14, 'Physics Class 12 Part-1', 'NCERT', '2018-19', '9788174506', 558, 140, 'book/Physics Class 12 Part-1.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
 (15, 'Physics Class 12 Part-2', 'NCERT', '2018-19', '9788174506', 308, 170, 'book/Physics Class 12 Part-2.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `cart_id` int(255) NOT NULL,
+  `b_id` int(255) NOT NULL,
+  `c_id` int(255) NOT NULL,
+  `product_name` varchar(50) NOT NULL,
+  `quantity` int(25) NOT NULL,
+  `price` bigint(255) NOT NULL,
+  `img` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `b_id`, `c_id`, `product_name`, `quantity`, `price`, `img`) VALUES
+(8, 5, 1, ' Science Class 10 Science Class 10', 1, 165, 'book/ Science Class 10.jpg'),
+(10, 4, 1, 'English Class 10', 1, 140, 'book/English Class 10.jpg'),
+(11, 6, 1, 'Science Class 10', 1, 165, 'book/ Science Class 10.jpg'),
+(12, 3, 1, 'Science Std 9', 1, 165, 'book/Science Std 9.jpg'),
+(13, 3, 1, 'Science Std 9', 1, 165, 'book/Science Std 9.jpg');
 
 -- --------------------------------------------------------
 
@@ -86,11 +113,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`C_id`, `F_name`, `L_name`, `Username`, `Password`, `Address`, `City`, `State`, `Pincode`, `Phone`, `Email`, `Dob`) VALUES
-(1, 'Admin', 'Admin', 'Admin', 'Admin123', 'test is test', 'ahemedabad', 'Gujrat', '382415', 2147483647, 'admin@test.com', '2000-09-03'),
-(2, 'test', 'test', 'test', 'toor', 'adasdasdasdhagfhdg agdfadh fahgda fhagdfjaghsfhghdgfasghfhagdhfhasdgfhagdfhasgfhdghgjdgfjsghdfhg', 'baroda', 'Gujrat', '382415', 2147483647, 'test@demo.cim', '2000-09-03'),
-(3, 'Admin', 'admin', 'admin', 'admin123', 'adasdasd', 'ahmedabad', 'Gujrat', '382415', 2147483647, 'admin@admin.admin', '2000-09-03'),
-(4, 'dummy', 'dummy', 'dummy', 'dummy', 'dummu', 'dummy', 'dummy', '585858', 2147483647, 'dummy@dummy.com', '0002-02-02'),
-(5, 'Rutvik', 'Bhimani', 'RV', 'Rutvik@007007', 'sdfs dfhs sdfgshdjhf', 'ahmedabad', 'Gujrat', '382415', 2147483647, 'bhimani.rutvik1211@gmail.com', '2000-09-03');
+(1, 'admin', '', 'admin', 'ADMIN123', 'satelite road', 'ahmedabad', 'Gujrat', '382415', 2147483647, 'bookmybook007@gmail.com', '2000-09-03');
 
 -- --------------------------------------------------------
 
@@ -109,10 +132,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`Login_id`, `Username`, `Password`) VALUES
-(1, 'test', '7b24afc8bc80e548d66c4e7ff72171c5'),
-(102, 'admin', '0192023a7bbd73250516f069df18b500'),
-(104, 'dummy', '275876e34cf609db118f3d84b799a790'),
-(105, 'RV', '1231217d8c56d74d33987b991834fdb1');
+(1, 'admin', '3f7caa3d471688b704b73e9a77b1107f');
 
 --
 -- Indexes for dumped tables
@@ -125,11 +145,19 @@ ALTER TABLE `book`
   ADD PRIMARY KEY (`b_id`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cart_id`);
+
+--
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`C_id`),
-  ADD UNIQUE KEY `Index 2` (`Email`);
+  ADD UNIQUE KEY `Index 2` (`Email`),
+  ADD UNIQUE KEY `Email` (`Email`),
+  ADD KEY `C_id` (`C_id`);
 
 --
 -- Indexes for table `login`
@@ -148,16 +176,22 @@ ALTER TABLE `book`
   MODIFY `b_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cart_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `C_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `C_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `Login_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `Login_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

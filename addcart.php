@@ -1,4 +1,5 @@
 <?php 
+        $flag=0;
         include_once 'connection.php';
         session_start();
         if (!empty($_SESSION['user'])) 
@@ -12,23 +13,35 @@
             $price = $row['b_price'];
             $img = $row['b_img'];
             $customerid = $_SESSION['login_id'];
-            try 
+            
+           try 
             {
-                $sql1 = "INSERT INTO cart(cart_id,b_id,c_id,product_name,quantity,price,img) VALUES(0,$bid,$customerid,'$pname',1,$price,'$img')";
-                $result1 = mysqli_query($conn,$sql1);
-                if (isset($result1)) 
+                $sql2 = "SELECT * FROM cart WHERE c_id=$customerid";
+                $result2 = mysqli_query($conn,$sql2) or die("Error in query");
+                $flag=1;
+                while ($row=mysqli_fetch_assoc($result2)) 
                 {
-                   header("Location: shopping-cart.php?cid=$customerid");
-                }
-                else
-                {
-                    echo "<script>alert('Something Went Wrong..')<script>";
-                }
+                    if ($row['b_id']==$id) 
+                    {    
+                        header("location: index.php?already");
+                    }
+                }   
+                        $sql1 = "INSERT INTO cart(cart_id,b_id,c_id,product_name,quantity,price,img) VALUES(0,$bid,$customerid,'$pname',1,$price,'$img')";
+                        $result1 = mysqli_query($conn,$sql1);
+                        if (isset($result1)) 
+                        {
+                            header("Location: shopping-cart.php?cid=$customerid");
+                        }
+                        else
+                        {
+                            echo "<script>alert('Something Went Wrong..')<script>";
+                        }                    
            }   
             catch (Exception $e) 
             {
                 echo($e->getmessage());    
             }
+     
         }
         else
         {

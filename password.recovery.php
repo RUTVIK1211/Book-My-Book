@@ -33,7 +33,7 @@
             </div>
     </section>
     <?php 
-    include_once 'connection.php';
+     include_once 'connection.php';
         if (isset($_POST['rec_acc'])) 
         {
            $uname = $_POST['uname'];
@@ -47,7 +47,6 @@
            {
              try 
              {
-                
                 $sub = "Password Recovery Of BOOKMYBOOK";
                 $to = trim($email);
                 $row = mysqli_fetch_array($result);
@@ -59,7 +58,7 @@
                 }
                 else
                 {
-                     echo "<script>alert('Something Went Wrong...')</script>";         
+                     header("location: 503.php");        
                 }
              } 
             

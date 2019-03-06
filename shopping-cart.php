@@ -37,7 +37,7 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">
-                                                <img src="img/icon/close-icon.png" alt="PRODUCT">
+												<a href="delcart.php?id=<?php echo $row['b_id']; ?>"><img src="img/icon/close-icon.png" alt="PRODUCT"></a>
                                             </th>
                                             <td>
                                                 <div class="media">

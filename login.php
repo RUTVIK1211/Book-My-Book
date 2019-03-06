@@ -73,7 +73,7 @@ else {
                         </div>
                         <form class="login_form row " action="login_process.php" method="post">
                             <div class="col-lg-12 form-group">
-                                <input class="form-control" type="text" placeholder="Name" name="uname">
+                                <input class="form-control" type="text" placeholder="Name" name="uname" required="required">
                             </div>
                             <div class="col-lg-12 form-group">
                                 <input class="form-control" type="password" placeholder="Password" name="password"

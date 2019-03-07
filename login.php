@@ -21,7 +21,7 @@ if (isset($_SESSION['user']))
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="login_title">
-                            <h1 style="font-family: comic sans ms;" ><?php echo strtoupper($_SESSION['user']); ?></h1><h2>You Are Already Login </h2>
+                            <h1 style="font-family: comic sans ms;" ><?php echo strtoupper($_SESSION['user']); ?></h1><br><h2>You Are Already Login </h2>
                             <p>Click Below Button For Logout..</p>
                         </div>
                         <form class="login_form row " action="login_out.php" method="post">
@@ -99,25 +99,25 @@ else {
                         </div>
                         <form class="login_form row" action="singup.php" method="post" name="ca">
                             <div class="col-lg-6 form-group">
-                                <input class="form-control" type="text" name="fname" placeholder=" First Name" required="true">
+                                <input class="form-control" type="text" oninput="gree()"  name="fname" placeholder=" First Name" required="true">
                             </div>
                             <div class="col-lg-6 form-group">
-                                <input class="form-control" type="text" name="lname" placeholder="Last Name" required="true">
+                                <input class="form-control" type="text"  oninput="gree()" name="lname" placeholder="Last Name" required="true">
                             </div>
                             <div class="col-lg-6 form-group">
-                                <input class="form-control" type="email" name="email" placeholder="Email"
+                                <input class="form-control" type="email" oninput="gree()" name="email" placeholder="Email"
                                        required="true">
                             </div>
                             <div class="col-lg-6 form-group">
-                                <input class="form-control" type="text" name="uname" placeholder="User Name"
+                                <input class="form-control" type="text" oninput="gree()"  name="uname" placeholder="User Name"
                                        required="true">
                             </div>
                             <div class="col-lg-6 form-group">
-                                <input class="form-control" type="number" name="phone" minlength="10" size="10" 
+                                <input class="form-control" type="number" oninput="gree()" name="phone" minlength="10" size="10" 
                                        placeholder="Phone" required="true">
                             </div>
                             <div class="col-lg-6 form-group">
-                            <textarea class="form-control" name="add" id="message" style="border-left-width: 1px;width: 375px;height: 62px; rows="2" cols="2" placeholder="Type Your Address..."></textarea>
+                            <textarea class="form-control" name="add" oninput="gree()" id="message" style="border-left-width: 1px;width: 375px;height: 62px;" rows="2" cols="2" placeholder="Type Your Address..."></textarea>
                             </div>
                             <div class="col-lg-6 form-group">
                                 <input class="form-control" type="password" name="password" placeholder="Password"
@@ -129,13 +129,13 @@ else {
                                        required="true" oninput="testpass()">
                             </div>
                             <div class="col-lg-6 form-group">
-                                <input type="text" name="city" placeholder="City" class="form-control" required>
+                                <input type="text" name="city" placeholder="City" oninput="gree()" class="form-control" required>
                             </div>
                             <div class="col-lg-6 form-group">
-                                <input type="text" name="state" placeholder="State" class="form-control" required >
+                                <input type="text" name="state" placeholder="State" oninput="gree()" class="form-control" required >
                             </div>
                             <div class="col-lg-6 form-group">
-                                <input type="number" name="pincode" placeholder="Pincode" class="form-control" required maxlength="1" minlength="1">
+                                <input type="number" name="pincode" placeholder="Pincode" oninput="gree()" class="form-control" required maxlength="1" minlength="1">
                             </div>
                             <div class="col-lg-6 form-group">
                                 <input type="date" name="dob"  class="form-control"  required="true">
@@ -153,97 +153,7 @@ else {
     </section>
     
     <!--================End login Area =================-->
-
-    <!--================Footer Area =================-->
-    <footer class="footer_area">
-        <div class="container">
-            <div class="footer_widgets">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-6">
-                        <aside class="f_widget f_about_widget">
-                            <img src="img/logo.png" alt="">
-                            <p>Persuit is a Premium PSD Template. Best choice for your online store. Let purchase it to
-                                enjoy now</p>
-                            <h6>Social:</h6>
-                            <ul>
-                                <li><a href="#"><i class="social_facebook"></i></a></li>
-                                <li><a href="#"><i class="social_twitter"></i></a></li>
-                                <li><a href="#"><i class="social_pinterest"></i></a></li>
-                                <li><a href="#"><i class="social_instagram"></i></a></li>
-                                <li><a href="#"><i class="social_youtube"></i></a></li>
-                            </ul>
-                        </aside>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <aside class="f_widget link_widget f_info_widget">
-                            <div class="f_w_title">
-                                <h3>Information</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Delivery information</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">Returns & Refunds</a></li>
-                            </ul>
-                        </aside>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <aside class="f_widget link_widget f_service_widget">
-                            <div class="f_w_title">
-                                <h3>Customer Service</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">My account</a></li>
-                                <li><a href="#">Ordr History</a></li>
-                                <li><a href="#">Wish List</a></li>
-                                <li><a href="#">Newsletter</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                            </ul>
-                        </aside>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <aside class="f_widget link_widget f_extra_widget">
-                            <div class="f_w_title">
-                                <h3>Extras</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">Brands</a></li>
-                                <li><a href="#">Gift Vouchers</a></li>
-                                <li><a href="#">Affiliates</a></li>
-                                <li><a href="#">Specials</a></li>
-                            </ul>
-                        </aside>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <aside class="f_widget link_widget f_account_widget">
-                            <div class="f_w_title">
-                                <h3>My Account</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">My account</a></li>
-                                <li><a href="#">Ordr History</a></li>
-                                <li><a href="#">Wish List</a></li>
-                                <li><a href="#">Newsletter</a></li>
-                            </ul>
-                        </aside>
-                    </div>
-                </div>
-            </div>
-            <div class="footer_copyright">
-                <h5>©
-                    <script>document.write(new Date().getFullYear());</script>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                    All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                </h5>
-            </div>
-        </div>
-    </footer>
-    <!--================End Footer Area =================-->
-    <script type="text/javascript">
+<script type="text/javascript">
         
         function testpass()
         {
@@ -265,38 +175,79 @@ else {
                 temp1.style.borderColor = "red";
             }
         }
+	
+		function gree()
+	    {
+			var form=document.forms.ca;
+			var fname= form.fname.value;
+			var lname = form.lname.value;
+			var email= form.email.value;
+			var uname = form.uname.value;
+			var phone = form.phone.value;
+			var add = form.add.value;
+			var city = form.city.value;
+			var state = form.state.value;
+			var pina = form.pincode.value;
+			
+			if(fname!="")
+			{
+				var temp = form.fname;
+					temp.style.borderColor="green"
+			}
+			
+			if(lname!="")
+			{
+				var temp = form.lname;
+					temp.style.borderColor="green"
+			}
+			
+			if(email!="")
+			{
+				var temp = form.email;
+					temp.style.borderColor="green"
+			}
+			
+			if(uname!="")
+			{
+				var temp = form.uname;
+					temp.style.borderColor="green"
+			}
+			
+			if(phone!="")
+			{
+				var temp = form.phone;
+					temp.style.borderColor="green"
+			}
+			
+			if(add!="")
+			{
+				var temp = form.add;
+					temp.style.borderColor="green"
+			}
+			
+			if(city!="")
+			{
+				var temp = form.city;
+					temp.style.borderColor="green"
+			}
+			if(state!="")
+			{
+				var temp = form.state;
+					temp.style.borderColor="green"
+			}
+			if(pina!="")
+			{
+				var temp = form.pincode;
+					temp.style.borderColor="green"
+			}
+		}
+	
+		
     </script>
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Rev slider js -->
-    <script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
-    <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <!-- Extra plugin css -->
-    <script src="vendors/counterup/jquery.waypoints.min.js"></script>
-    <script src="vendors/counterup/jquery.counterup.min.js"></script>
-    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="vendors/bootstrap-selector/js/bootstrap-select.min.js"></script>
-    <script src="vendors/image-dropdown/jquery.dd.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-    <script src="vendors/isotope/isotope.pkgd.min.js"></script>
-    <script src="vendors/magnify-popup/jquery.magnific-popup.min.js"></script>
-    <script src="vendors/vertical-slider/js/jQuery.verticalCarousel.js"></script>
-    <script src="vendors/jquery-ui/jquery-ui.js"></script>
-    <script src="js/theme.js"></script>
-    </body>
-    </html>
+    <!--================Footer Area =================-->
+    <?php include_once 'footer.php'; ?>
+    <!--================End Footer Area =================-->
+   
     <?php
 }
 ?>

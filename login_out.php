@@ -5,3 +5,4 @@
 	unset($_SESSION['time']);
 	header("Location: login.php?logoutted");
  ?>
+ 

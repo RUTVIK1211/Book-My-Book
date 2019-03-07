@@ -24,7 +24,8 @@
          	<td><input type="text" name="name"></td>
          </tr>  
          <tr>
-         	<th>Publisher :</th>
+         	<th>Publ
+         	isher :</th>
          	<td><input type="text" name="publisher"></td>
          </tr>
          <tr>

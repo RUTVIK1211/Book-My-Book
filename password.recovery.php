@@ -20,6 +20,7 @@
                             </div>
                             <div class="col-lg-12 form-group">
                                 <input class="form-control" type="text" placeholder="Email" name="email" required="true">
+                           
                             </div>
                             <div class="col-lg-12 form-group">
                                 <button type="submit" value="submit" class="btn subs_btn form-control" name="rec_acc">Submit

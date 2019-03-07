@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION['user']))
 {
-    if(time() - $_SESSION['time'] > 100) 
+    if(time() - $_SESSION['time'] > 10000) 
     {
         session_destroy();
        header("Location: login.php");
@@ -13,6 +13,9 @@ if(isset($_SESSION['user']))
 <?php 
         include_once 'heder.php';
         include_once 'connection.php';
+        if (isset($_GET['already'])) {
+    echo "<script>alert('alredy add to cart')</script>";
+}
  ?>
         <!--================End Menu Area =================-->
         

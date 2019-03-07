@@ -6,6 +6,7 @@
  */
 
 (function($) {  
+	
 	$.fn.verticalCarousel = function(options) {  
 
 		var carouselContainerClass = "vc_container";

@@ -13,11 +13,23 @@
     global $amounttopay;
     global $flag;
     global $discount;
+    global $userid;
+    global $payment;
+
     $total = $_SESSION['amount'];//total without applying the discount 
     $amounttopay  = $_SESSION['amounttopay'];//payable amount after apply discount 
-    $userid = $_POST['userid'];
+    if (isset($_POST['userid'])) 
+    {
+        $userid = $_POST['userid'];
+    }
+    else
+    {
+        $userid = $_SESSION['login_id'];
+    }
+
     $couponid;
     $flag = 0;
+    $payment = 0;
     //Getting up the user details 
     
     $sql = "SELECT * FROM customer WHERE C_id='$userid'";
@@ -55,6 +67,7 @@
         <!--================End Categories Banner Area =================-->
         
         <!--================Register Area =================-->
+        <form class="billing_inner" method="GET" action="404.php">
         <section class="register_area p_100">
             <div class="container">
                 <div class="register_inner">
@@ -62,7 +75,7 @@
                         <div class="col-lg-7">
                             <div class="billing_details">
                                 <h2 class="reg_title">Billing Detail</h2>
-                                <form class="billing_inner row">
+                                
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                         </div>
@@ -70,7 +83,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="name">First Name <span>*</span></label>
-                                            <input type="text" name="fname" class="form-control" id="name" value="<?php echo $fname; ?>" aria-describedby="name" placeholder="">
+                                            <input type="text" name="fname" class="form-control" id="name" value="<?php echo $fname; ?>" aria-describedby="name"  placeholder="" >
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -103,7 +116,7 @@
                                             <input type="text" value="<?php echo $phone; ?>" class="form-control" name="phone" id="phone" aria-describedby="phone">
                                         </div>
                                     </div>
-                                </form>
+                                
                             </div>
                         </div>
                         <div class="col-lg-5">
@@ -117,7 +130,7 @@
                                             while ($row1 = mysqli_fetch_assoc($result1)) 
                                             {
                                          ?>
-                                        <h5><?php echo $row1['product_name'];?><span>₹<?php echo $row1['price']; ?></span></h5>
+                                        <h5><?php echo $row1['product_name'];?><span>₹<?php echo $row1['price']." X ".$row1['quantity']; ?></span> </h5>
                                         <?php 
                                             }
                                          ?>
@@ -139,21 +152,21 @@
                                         <div class="card">
                                             <div class="card-header" role="tab" id="headingOne">
                                                 <h5 class="mb-0">
-                                                    <a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+                                                    <a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne" name="CASH" value="cash">
                                                     Cash On Delivery 
                                                     </a>
                                                 </h5>
                                             </div>
                                             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    Lorem Ipsum is simply dummy text of the print-ing and typesetting industry. Lorem Ipsum has been the industry's. 
+                                                    Don't Trust in Online Payment ook.BookMyBook Provide Offline cash on delivery option.  
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card">
                                             <div class="card-header" role="tab" id="headingTwo">
                                                 <h5 class="mb-0">
-                                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+                                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo" name="online" value="paypal">
                                                    paypal
                                                     </a>
                                                 </h5>
@@ -172,12 +185,14 @@
                                     </div>
                                 </div>  
                                 <button type="submit" value="submit" class="btn subs_btn form-control">place order</button>
+                            
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+            </form>
         <!--================End Register Area =================-->
         
         <!--================Footer Area =================-->

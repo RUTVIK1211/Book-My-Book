@@ -24,7 +24,7 @@
                 <div class="error_inner">
                     <h4>503</h4>
                     <h5>Error - Internal Server Error</h5>
-                    <p>Sorrey We’re not able to find what you looking for</p>
+                    <p>Sorry We’re not able to find what you looking for</p>
                     <h6>back to <a href="index.php">Home</a></h6>
                 </div>
             </div>

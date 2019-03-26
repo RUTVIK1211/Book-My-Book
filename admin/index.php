@@ -1,4 +1,8 @@
-
+<?php 
+session_start();
+if(isset($_SESSION['admin'])) 
+{
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,27 +18,18 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
- 
 </head>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-
       <?php
-      
-      
         include("include/header.php");
-      
       ?>
     <!--partial-->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
         <?php
-            
-            
             include("include/menu.php");
-            
-            
             ?>
  
       <!-- partial -->
@@ -100,3 +95,10 @@
 </body>
 
 </html>
+<?php 
+}
+else
+{
+    header("location: login.php");
+}
+ ?>

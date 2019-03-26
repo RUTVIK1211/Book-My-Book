@@ -30,27 +30,59 @@
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
         <?php
-            
-            
             include("include/menu.php");
-            
-            
             ?>
- 
       <!-- partial -->
 <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-description">
-                    Basic form 
+                    Edit user Information
                   </p>
-                  <form class="forms-sample" name="frm1" method="post" action="add_insertdata.php" >
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">Username</label>
-                      <input type="text" name="txtname" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                  <form class="forms-sample">
+                    <div class="form-group row">
+                      <label for=" exampleInputUsername2" class="col-sm-3 col-form-label">C_id</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" name="C_id" id="exampleInputUsername2" placeholder="C_id" readonly="true">
+                      </div>
                     </div>
-                    
-                    <button type="submit" name="btnsubmit" class="btn btn-gradient-primary mr-2">Submit</button>
+                    <div class="form-group row">
+                      <label for=" exampleInputUsername2" class="col-sm-3 col-form-label">F_name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" name="fname" id="exampleInputUsername2" placeholder="First name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for=" exampleInputUsername2" class="col-sm-3 col-form-label">L_name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" name="lname" id="exampleInputUsername2" placeholder="Last name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                      <div class="col-sm-9">
+                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputMobile" class="col-sm-3 col-form-label">Phone</label>
+                      <div class="col-sm-9">
+                        <input type="number"  name="phone" class="form-control" id="exampleInputMobile" placeholder="Phone number">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for=" exampleInputUsername2" class="col-sm-3 col-form-label">Address</label>
+                      <div class="col-sm-9">
+                       <textarea class="form-control" name="address" id="exampleInputUsername2" placeholder="Address" rows="5"></textarea>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>
                 </div>

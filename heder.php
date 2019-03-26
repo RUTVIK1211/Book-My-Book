@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <script src="https://www.paypal.com/sdk/js?client-id=SB_CLIENT_ID">
+  </script>
         <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Book My Book</title>
@@ -150,7 +151,7 @@
                             <li class="nav-item"><a class="nav-link" href="#">Genral Knowlage</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Tutoriyal</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">About us </a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                         </ul>
                     </div>
                 </nav>

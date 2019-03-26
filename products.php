@@ -1,8 +1,11 @@
 <?php 
+ if (isset($_GET['id'])) 
+ {
+    session_start();
+    include_once 'heder.php';
+    include_once 'connection.php';
 
-include_once 'heder.php';
-include_once 'connection.php';
- ?>
+    ?>
  <style type="text/css">
  	#product_grid
  	{ 		
@@ -16,6 +19,7 @@ include_once 'connection.php';
     }
  </style>
  <?php 
+
         $id = $_GET['id'];
         $sql = "SELECT * FROM book WHERE b_id=$id";
         $result = mysqli_query($conn,$sql) or die("<script>alert('ERROR :007')<script>");
@@ -46,7 +50,7 @@ include_once 'connection.php';
                                         <!-- LAYERS -->
                                     </li>
                                     <!-- SLIDE  -->
-                                    <li data-index="rs-302" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="/<?php echo $row['b_img']; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Ride my Bike" data-param1="September 4, 2015" data-param2="Why not another Image?" data-description="">
+                                    <li data-index="rs-302" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="<?php echo $row['b_img']; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Ride my Bike" data-param1="September 4, 2015" data-param2="Why not another Image?" data-description="">
                                         <!-- MAIN IMAGE -->
                                         <img src="<?php echo $row['b_img']; ?>"  alt=""  width="1920" height="1080" data-lazyload="<?php echo $row['b_img']; ?>" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                         <!-- LAYERS -->
@@ -90,14 +94,16 @@ include_once 'connection.php';
                                     <li><h5><?php echo $row['b_publisher']; ?></h5></li>
                                 </ul>
                             </div>
+                            <form method="post" action="add_cart.php?id=<?php echo $row['b_id'];?>">
                             <div class="quantity">
                                 <div class="custom">
                                     <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon_minus-06"></i></button>
                                     <input type="text" name="qty" id="sst" maxlength="12" value="01" title="Quantity:" class="input-text qty">
                                     <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="icon_plus"></i></button>
                                 </div>
-                                <a class="add_cart_btn" href="#">add to cart</a>
+                               <button class="add_cart_btn" type="submit" value="submit"  type="submit">add to cart</button>
                             </div>
+                        </form>
                         </div>
                         <div class="product_table_details">
                             <div class="table-responsive-md">
@@ -129,8 +135,18 @@ include_once 'connection.php';
                     </div>
                 </div>
             </div>
-        </section>
- <?php 
+</section>
+
+ <?php  
+         include_once 'footer.php';
 }
- include_once 'footer.php';
+}
+else
+{
+    header("location: index.php");
+}
+ if (isset($_GET['already'])) 
+ {
+    echo "<script>alert('alredy add to cart')</script>";
+ }
   ?>

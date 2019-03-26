@@ -1,5 +1,7 @@
 This BOOKMYBOOK is PHP based weballpication
 
+All i just use for developing it just an core php and some pease of java script  
+
 What You required..
 	1)Web Browser (javascript Enabled)
 	2)Apache Server
@@ -10,4 +12,7 @@ What We Use..
 	Javascript
 	Jquary
 	Mysql
+
+ Hii I am RV and I am totally firusted while creating this website it looks good at forntend but while developing its backend i am think i am motherfucker...
 	
+	₹

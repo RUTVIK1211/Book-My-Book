@@ -21,12 +21,12 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-cate" aria-expanded="false" aria-controls="ui-cate">
+            <a class="nav-link" data-toggle="collapse" href="#ui-cate1" aria-expanded="false" aria-controls="ui-cate">
               <span class="menu-title">Books</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-cate">
+            <div class="collapse" id="ui-cate1">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="addcategory.php">Add books</a></li>
                 <li class="nav-item"> <a class="nav-link" href="veiwcategory.php">View books</a></li>
@@ -34,25 +34,25 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-cate" aria-expanded="false" aria-controls="ui-cate">
+            <a class="nav-link" data-toggle="collapse" href="#ui-cate2" aria-expanded="false" aria-controls="ui-cate">
               <span class="menu-title">Users</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-cate">
+            <div class="collapse" id="ui-cate2">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="addcategory.php">Add user</a></li>
-                <li class="nav-item"> <a class="nav-link" href="veiwcategory.php">View user</a></li>
+                <li class="nav-item"> <a class="nav-link" href="view_user.php">View user</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-cate" aria-expanded="false" aria-controls="ui-cate">
+            <a class="nav-link" data-toggle="collapse" href="#ui-cate3" aria-expanded="false" aria-controls="ui-cate">
               <span class="menu-title">Employee</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-cate">
+            <div class="collapse" id="ui-cate3">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="addcategory.php">Add employee</a></li>
                 <li class="nav-item"> <a class="nav-link" href="veiwcategory.php">View employee</a></li>

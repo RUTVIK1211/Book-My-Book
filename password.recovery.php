@@ -16,10 +16,10 @@
                         </div>
                         <form class="login_form row" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
                             <div class="col-lg-12 form-group">
-                                <input class="form-control" type="text" placeholder="Username" name="uname">
+                                <input class="form-control" type="text" placeholder="Username" name="uname" required="required">
                             </div>
                             <div class="col-lg-12 form-group">
-                                <input class="form-control" type="text" placeholder="Email" name="email" required="true">
+                                <input class="form-control" type="email" placeholder="Email" name="email" required="true">
                            
                             </div>
                             <div class="col-lg-12 form-group">

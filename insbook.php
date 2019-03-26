@@ -77,6 +77,8 @@
 		
         $img=$_FILES['img'];
 		$name =$_POST['name'];
+		$newname =trim($name);
+		var_dump($newname);
 		$publisher = $_POST['publisher'];
 		$edition = $_POST['edition'];
 		$isbn = $_POST['isbn'];
@@ -101,9 +103,9 @@
 			{
 				if ($fsize < 5000000)
 				{
-						$fnewname = $name.".".$faexten;
-						$store = 'book/'.$fnewname;
-						$path =$store;
+						$fnewname=$newname.".".$faexten;
+						$store = "book/".trim($fnewname);
+						$path =trim($store);
 						move_uploaded_file($ftname,$store);
 				}
 				else

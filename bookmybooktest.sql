@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2019 at 08:28 PM
+-- Generation Time: Mar 24, 2019 at 06:09 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -46,19 +46,8 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`b_id`, `b_name`, `b_publisher`, `b_edition`, `b_isbn`, `b_page`, `b_price`, `b_img`, `b_author`, `b_description`) VALUES
-(2, 'Mathematics Std 9', 'NCERT', '2016-17', '9788174504', 364, 135, 'book/Mathematics Std 9.jpg', 'NCERT', 'Language: English\r\nBinding: Paperback\r\n'),
-(3, 'Science Std 9', 'NCERT', '2016-17', '9788174504', 218, 165, 'book/Science Std 9.jpg', 'NCERT', 'Language: English \r\nBinding: Paperback\r\n'),
-(4, 'English Class 10', 'NCERT', '2016-17', '9788174506', 364, 140, 'book/English Class 10.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback,'),
-(5, ' Science Class 10', 'NCERT', '2017-18', '9788174506', 282, 165, 'book/ Science Class 10.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback,'),
-(6, 'Science Class 10', 'NCERT', '2017-18', '9788174506', 282, 165, 'book/ Science Class 10.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback,'),
-(7, 'Chemistry Class 11 Part-1', 'NCERT', '2018-19', '9788174504', 255, 155, 'book/Chemistry Class 11 Part-1.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
-(8, 'Chemistry Class 11 Part-2', 'NCERT', '2018-19', '9788174505', 421, 105, 'book/Chemistry Class 11 Part-2.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
-(9, 'Physics Class 11 Part-1', 'NCERT', '2018-19', '9788174505', 220, 130, 'book/Physics Class 11 Part-1.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
-(11, 'Physics Class 11 Part-2', 'NCERT', '2018-19', '9788174505', 412, 105, 'book/Physics Class 11 Part-2.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
-(12, 'Maths Class 12 Part-1', 'NCERT', '2018-19', '9788174506', 286, 250, 'book/Maths Class 12 Part-1.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
-(13, 'Maths Class 12 Part-2', 'NCERT', '2018-19', '9788174506', 622, 400, 'book/Maths Class 12 Part-2.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
-(14, 'Physics Class 12 Part-1', 'NCERT', '2018-19', '9788174506', 558, 140, 'book/Physics Class 12 Part-1.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback'),
-(15, 'Physics Class 12 Part-2', 'NCERT', '2018-19', '9788174506', 308, 170, 'book/Physics Class 12 Part-2.jpg', 'NCERT', 'Language: English,\r\nBinding: Paperback');
+(6, 'asda as ', 'asd', 'asd', 'asd', 123, 123, 'book/asda as.jpg', 'asd', 'asd'),
+(7, 'science', 'ncet', '2018-2019', '2351058', 125, 4500, 'book/science.jpg', 'asd', 'reefsdfasdfsda sdfdfad');
 
 -- --------------------------------------------------------
 
@@ -81,11 +70,35 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `b_id`, `c_id`, `product_name`, `quantity`, `price`, `img`) VALUES
-(8, 5, 1, ' Science Class 10 Science Class 10', 1, 165, 'book/ Science Class 10.jpg'),
-(10, 4, 1, 'English Class 10', 1, 140, 'book/English Class 10.jpg'),
-(11, 6, 1, 'Science Class 10', 1, 165, 'book/ Science Class 10.jpg'),
-(12, 3, 1, 'Science Std 9', 1, 165, 'book/Science Std 9.jpg'),
-(13, 3, 1, 'Science Std 9', 1, 165, 'book/Science Std 9.jpg');
+(13, 6, 1, 'asda as ', 6, 123, 'book/asda as.jpg'),
+(14, 7, 1, 'science', 3, 4500, 'book/science.jpg'),
+(15, 6, 4, 'asda as ', 1, 123, 'book/asda as.jpg'),
+(19, 7, 8, 'science', 1, 4500, 'book/science.jpg'),
+(21, 6, 9, 'asda as ', 1, 123, 'book/asda as.jpg'),
+(22, 6, 8, 'asda as ', 1, 123, 'book/asda as.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coupon`
+--
+
+CREATE TABLE `coupon` (
+  `co_id` int(255) NOT NULL,
+  `coupon` varchar(255) NOT NULL,
+  `amount` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `coupon`
+--
+
+INSERT INTO `coupon` (`co_id`, `coupon`, `amount`) VALUES
+(15, '#LEGENDARY_RV', '150'),
+(16, '#RVBHUMI', '1000000'),
+(18, '#LEGENDARY_AMAN ', '100'),
+(19, '#LEGENDARY_PAAVAN ', '100'),
+(20, '#PHENOMENALAJ', '100');
 
 -- --------------------------------------------------------
 
@@ -103,7 +116,7 @@ CREATE TABLE `customer` (
   `City` varchar(15) NOT NULL,
   `State` varchar(15) NOT NULL,
   `Pincode` varchar(6) NOT NULL,
-  `Phone` int(10) NOT NULL,
+  `Phone` varchar(10) NOT NULL,
   `Email` varchar(40) DEFAULT NULL,
   `Dob` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -113,7 +126,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`C_id`, `F_name`, `L_name`, `Username`, `Password`, `Address`, `City`, `State`, `Pincode`, `Phone`, `Email`, `Dob`) VALUES
-(1, 'admin', '', 'admin', 'ADMIN123', 'satelite road', 'ahmedabad', 'Gujrat', '382415', 2147483647, 'bookmybook007@gmail.com', '2000-09-03');
+(8, 'Rutvik', 'Bhimani', 'rutvik', 'admin', 'this is an address', 'ahmedabad ', 'Gujrat', '382415', '8733005877', 'bhimani.rutvik1211@gmail.com', '2000-09-03'),
+(9, 'admin', 'admin', 'admin', 'admin123', 'this is an admin address', 'ahmedabad', 'Gujrat', '382415', '9924226629', 'admin@gmail.com', '2000-09-03');
 
 -- --------------------------------------------------------
 
@@ -132,7 +146,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`Login_id`, `Username`, `Password`) VALUES
-(1, 'admin', '3f7caa3d471688b704b73e9a77b1107f');
+(8, 'rutvik', '21232f297a57a5a743894a0e4a801fc3'),
+(9, 'admin', '0192023a7bbd73250516f069df18b500');
 
 --
 -- Indexes for dumped tables
@@ -149,6 +164,12 @@ ALTER TABLE `book`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`);
+
+--
+-- Indexes for table `coupon`
+--
+ALTER TABLE `coupon`
+  ADD PRIMARY KEY (`co_id`);
 
 --
 -- Indexes for table `customer`
@@ -173,25 +194,31 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `b_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `b_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `cart_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `coupon`
+--
+ALTER TABLE `coupon`
+  MODIFY `co_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `C_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `C_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `Login_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Login_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

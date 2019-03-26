@@ -7,7 +7,7 @@
 	{
 
 		$fname = $_POST['fname'];
-		$lname = $_POST['lame'];
+		$lname = $_POST['lname'];
 		$email = $_POST['email']; 
 		$uname = $_POST['uname'];
 		$phone = $_POST['phone'];

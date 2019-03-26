@@ -4,12 +4,16 @@
     if (isset($_SESSION['user'])) 
     {
        $id = $_SESSION['login_id'];
-       $sql = "SELECT * FROM cart WHERE c_id=$id";
+       $sql = "SELECT * FROM cart WHERE c_id=$id ORDER BY b_id";
        $result = mysqli_query($conn,$sql);
        $count = mysqli_num_rows($result);
         if ($count > 0) 
         {
+               global $total ;
+               global $finaltotal;
 
+               $total=0;
+               $finaltotal=0;
  ?>
 <?php include_once 'heder.php'; ?>
    <section class="shopping_cart_area p_100">
@@ -29,15 +33,14 @@
                                             <th scope="col">total</th>
                                         </tr>
                                     </thead>
-                                     <?php 
-                                    $total = 0;
+                                    <?php 
                                     while ( $row = mysqli_fetch_array($result)) 
                                     {
                                     ?>
                                     <tbody>
                                         <tr>
                                             <th scope="row">
-												<a href="delcart.php?id=<?php echo $row['b_id']; ?>"><img src="img/icon/close-icon.png" alt="PRODUCT"></a>
+                                                <a href="delcart.php?id=<?php echo $row['b_id']; ?>"><img src="img/icon/close-icon.png" alt="PRODUCT"></a>
                                             </th>
                                             <td>
                                                 <div class="media">
@@ -54,43 +57,45 @@
                                             </td>
                                             <td>
                                                 <?php 
-                                                    echo '<input type="text" name="quantity" placeholder="01">';
-                                                    
+                                                    $index = $row['b_id'];
+                                                    echo '<input type="text" name="quantity'.$index.'" placeholder="'.$row["quantity"].'">';
+
                                               ?>
                                             </td>
                                             <td>
-                                                <p>₹<?php echo $row['price']; ?></p>
+                                                <p>₹<?php
+                                                        $total = $row['quantity'] * $row['price'];
+                                                        echo $total;
+                                                 ?></p>
                                             </td>
                                         </tr>          
                                     </tbody>
                                     <?php 
-                                        $total += $row["price"];
+                                        $finaltotal += $total;
+                                        $_SESSION['amount'] = $finaltotal;
                                     }
+
                                 ?>
                                 </table>
                                  </div>
                         </div>
-                        <div class="calculate_shoping_area">
-                            <h3 class="cart_single_title">Calculate Shopping <span><i class="icon_minus-06"></i></span></h3>
+                         <div class="calculate_shoping_area">
+                            <h3 class="cart_single_title"> <span><i class="icon_minus-06"></i></span></h3>
                             <div class="calculate_shop_inner">
-                                <form class="calculate_shoping_form row" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                              
                                     <div class="form-group col-lg-12">
-                                        <select class="selectpicker">
-                                            <option>United State America (USA)</option>
-                                            <option>United State America (USA)</option>
-                                            <option>United State America (USA)</option>
-                                        </select>
+                                        
+                                       
                                     </div>
                                     <div class="form-group col-lg-6">
-                                        <input type="text" class="form-control" id="state" name="state" placeholder="State / Country">
+                                       
                                     </div>
                                     <div class="form-group col-lg-6">
-                                        <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode / Zip">
+                                      
                                     </div>
                                     <div class="form-group col-lg-12">
-                                        <button type="submit" value="submit" class="btn submit_btn form-control">update totals</button>
                                     </div>
-                                </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -98,22 +103,47 @@
                         <div class="total_amount_area">
                             <div class="cupon_box">
                                 <h3 class="cart_single_title">Discount Coupon</h3>
+                                <form name="coupon" method="post" action="coupon_process.php" >
                                 <div class="cupon_box_inner">
-                                    <input type="text" placeholder="Enter your code here">
-                                    <button type="submit" class="btn btn-primary subs_btn">apply coupon</button>
+                                    <input type="text" placeholder="Enter your code here" name="coupon" required="required">
+                                    <input type="hidden" name="amount" value="<?php echo $finaltotal; ?>">
+                                    <button type="submit" name="submit" class="btn btn-primary subs_btn">Apply coupon</button>
                                 </div>
+                                </form>
                             </div>
                             <div class="cart_totals">
                                 <h3 class="cart_single_title">Discount Coupon</h3>
                                 <div class="cart_total_inner">
                                     <ul>
-                                        <li><a href="#"><span>Cart Subtotal</span> ₹<?php echo "$total"; ?></a></li>
-                                        <li><a href="#"><span>Shipping</span> Free</a></li>
-                                        <li><a href="#"><span>Totals</span> ₹<?php echo "$total"; ?></a></li>
+                                        <li><a href="#"><span>Cart Subtotal</span> ₹<?php if (isset($_SESSION['coupon']['amount'])) 
+                                        {       
+                                                $finaltotal=$_SESSION['coupon']['amount'];
+                                                echo $finaltotal;
+                                        }
+                                        else
+                                        {
+                                            echo $finaltotal;
+                                        } ?></a></li>
+                                        <li><a href=""><span>Shipping</span> Free</a></li>
+                                        <li><a href=""><span>Totals</span> ₹<?php if (isset($_SESSION['coupon']['amount'])) 
+                                        {
+                                                echo $finaltotal;
+                                                unset($_SESSION['coupon']['amount']);
+                                        }
+                                        else
+                                        {
+                                            echo $finaltotal;
+                                        } ?>        </a></li>
                                     </ul>
                                 </div>
-                                <button type="submit" class="btn btn-primary update_btn">update cart</button>
-                                <form action="shopping-cart.php?action=payment" >
+                                    <form action="update_cart">
+                                    <button type="submit" value="submit" class="btn btn-primary update_btn">update cart</button>
+                                   </form>
+                                <form action="register.php" method="post">
+                                    <input type="hidden" name="userid" value="<?php echo $_SESSION['login_id']; ?>">
+                                    <?php 
+                                        $_SESSION['amounttopay'] = $finaltotal;
+                                     ?>
                                 <button type="submit" class="btn btn-primary checkout_btn">proceed to checkout</button>
                                 </form>
                             </div>
@@ -122,6 +152,7 @@
                 </div>
             </div>
         </section>
+        
         <!--================End Shopping Cart Area =================-->
         
         <!--================Footer Area =================-->
@@ -137,5 +168,12 @@
     else
     {
         header("location: login.php");
+    }
+    if (isset($_GET['error'])) {
+       echo "<script>alert('Wrong code is Applied 😭😭')</script>";
+    }
+    if (isset($_GET['Success'])) 
+    {
+            echo "<script>alert('Congratulations Bhikhari Discount Successfully Applied 👍👍')</script>";    
     }
  ?>

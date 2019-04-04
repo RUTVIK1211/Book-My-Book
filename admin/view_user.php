@@ -1,5 +1,8 @@
 <?php 
-  $conn =mysqli_connect("localhost","root","","bookmybooktest");
+      include_once 'connection.php';
+      session_start();
+      if (isset($_SESSION['admin'])) 
+      {
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,3 +115,10 @@
 </body>
 
 </html>
+<?php 
+  }
+  else
+  {
+    header("location: login.php");
+  }
+ ?>

@@ -1,3 +1,4 @@
+
 <?php 
     session_start();
    include_once 'connection.php';
@@ -15,6 +16,16 @@
                $total=0;
                $finaltotal=0;
  ?>
+ <?php 
+ if(isset($_SESSION['user']))
+{
+    if(time() - $_SESSION['time'] > 10000) 
+    {
+        session_destroy();
+       header("Location: login.php");
+    }
+}
+?>
 <?php include_once 'heder.php'; ?>
    <section class="shopping_cart_area p_100">
             <div class="container">
@@ -136,9 +147,9 @@
                                         } ?>        </a></li>
                                     </ul>
                                 </div>
-                                    <form action="update_cart">
+                                   
                                     <button type="submit" value="submit" class="btn btn-primary update_btn">update cart</button>
-                                   </form>
+        
                                 <form action="register.php" method="post">
                                     <input type="hidden" name="userid" value="<?php echo $_SESSION['login_id']; ?>">
                                     <?php 

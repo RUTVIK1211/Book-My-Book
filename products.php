@@ -116,13 +116,13 @@
                                                 <h5>Item location:</h5>
                                                 <p>BookMybook Office,Satellite, Ahmedabad </p>
                                                 <h5>Ships to:</h5>
-                                                <p>Vastral and many other Places.</p>
+                                                <p>BookMyBook office,Satellite,Ahmedabad</p>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Delivery:</th>
                                             <td>
-                                                <p>Estimated between <span>display date here</span> <br/>Includes Regional tracking</p>
+                                                <p>Estimated between <span> 7-10 Business Day</span> <br/>Includes Regional tracking</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -143,7 +143,7 @@
 }
 else
 {
-    header("location: index.php");
+    header("location: 404.php");
 }
  if (isset($_GET['already'])) 
  {

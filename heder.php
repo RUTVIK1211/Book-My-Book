@@ -116,7 +116,7 @@
                                 Buy Book <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="index.html">Buy NewBook</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="books.php">Buy NewBook</a></li>
                                     <li class="nav-item"><a class="nav-link" href="home-carousel.html">Buy Re-furbish Book</a></li>
                                     <li class="nav-item"><a class="nav-link" href="home-fullwidth.html">Buy Book on Rent</a></li>
                                     <li class="nav-item"><a class="nav-link" href="home-parallax.html">Buy Book with Exchange</a></li>

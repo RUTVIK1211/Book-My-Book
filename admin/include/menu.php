@@ -41,7 +41,7 @@
             </a>
             <div class="collapse" id="ui-cate2">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="addcategory.php">Add user</a></li>
+                <li class="nav-item"> <a class="nav-link" href="adduser.php">Add user</a></li>
                 <li class="nav-item"> <a class="nav-link" href="view_user.php">View user</a></li>
               </ul>
             </div>

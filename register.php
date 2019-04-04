@@ -41,6 +41,7 @@
     $city = $row['City'];
     $phone = $row['Phone'];
     $email = $row['Email'];
+    $pincode = $row['Pincode'];
 
     //fetching data of applied coupon
     if (($total-$amounttopay) > 0) 
@@ -67,7 +68,7 @@
         <!--================End Categories Banner Area =================-->
         
         <!--================Register Area =================-->
-        <form class="billing_inner" method="GET" action="404.php">
+        
         <section class="register_area p_100">
             <div class="container">
                 <div class="register_inner">
@@ -75,8 +76,8 @@
                         <div class="col-lg-7">
                             <div class="billing_details">
                                 <h2 class="reg_title">Billing Detail</h2>
-                                
-                                    <div class="col-lg-12">
+                                 <form class="billing_inner row" method="post" action="ord_gen.php" name="details">
+                                     <div class="col-lg-12">
                                         <div class="form-group">
                                         </div>
                                     </div>
@@ -102,6 +103,12 @@
                                         <div class="form-group">
                                             <label for="ctown">City / Town <span>*</span></label>
                                             <input type="text" name="city" value="<?php echo $city; ?>" class="form-control" id="address2" aria-describedby="address" name="city">
+                                        </div>
+                                    </div>
+                                      <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="pin">Pin Code <span>*</span></label>
+                                            <input type="text" name="pincode" value="<?php echo $pincode; ?>" class="form-control" id="last" aria-describedby="last">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -147,7 +154,9 @@
                                          ?>
                                         <h3><span class="normal_text">Order Totals</span> <span>₹ <?php echo $amounttopay; ?></span></h3>
                                     </div>
-                <!-- Below code is for payment options-->
+                                    <?php 
+                                        $_SESSION['amount'] = $amounttopay;
+                                     ?>
                                     <div id="accordion" role="tablist" class="price_method">
                                         <div class="card">
                                             <div class="card-header" role="tab" id="headingOne">
@@ -173,26 +182,24 @@
                                             </div>
                                             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
                                                 <div class="card-body">
-                                                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                                  <input type="hidden" name="cmd" value="_s-xclick">
-                                                  <input type="hidden" name="hosted_button_id" value="JLZF9F9CJWX6E">
-                                                  <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
-                                                  <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-                                                  </form>
+                                                  
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>  
-                                <button type="submit" value="submit" class="btn subs_btn form-control">place order</button>
-                            
+                                    </div> 
+                                     <button type="submit" name="submit" value="submit" class="btn subs_btn form-control">place order</button>
+                                 </form>
+                <!-- Below code is for payment options-->
+                                    
+                                </div>
+                              
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-            </form>
+        
         <!--================End Register Area =================-->
         
         <!--================Footer Area =================-->

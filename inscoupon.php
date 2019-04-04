@@ -1,3 +1,14 @@
+<?php 
+session_start();
+if(isset($_SESSION['user']))
+{
+    if(time() - $_SESSION['time'] > 10000) 
+    {
+        session_destroy();
+       header("Location: login.php");
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

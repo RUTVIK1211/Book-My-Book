@@ -81,7 +81,7 @@
                     <div class="form-group row">
                       <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
                       <div class="col-sm-9">
-                        <input type="email" value="<?php echo $row['Email']; ?>"  class="form-control" id="exampleInputEmail2" placeholder="Email">
+                        <input type="email" value="<?php echo $row['Email']; ?>"  class="form-control" id="exampleInputEmail2" name="email" placeholder="Email">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -110,6 +110,12 @@
                       <label for="exampleInputMobile" class="col-sm-3 col-form-label">Pincode</label>
                       <div class="col-sm-9">
                         <input type="text" value="<?php echo $row['Pincode']; ?>" class="form-control" name="pin" id="exampleInputMobile" placeholder="Pincode">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for=" exampleInputUsername2" class="col-sm-3 col-form-label">DOB</label>
+                      <div class="col-sm-9">
+                       <input type="date"  name="dob" class="form-control" id="exampleInputUsername2" placeholder="Date Of Birth" required>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>

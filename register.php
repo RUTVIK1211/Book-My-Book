@@ -84,43 +84,43 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="name">First Name <span>*</span></label>
-                                            <input type="text" name="fname" class="form-control" id="name" value="<?php echo $fname; ?>" aria-describedby="name"  placeholder="" >
+                                            <input type="text" name="fname" class="form-control" id="name" value="<?php echo $fname; ?>" aria-describedby="name"  placeholder="" required >
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="last">Last Name <span>*</span></label>
-                                            <input type="text" name="lname" value="<?php echo $lname; ?>" class="form-control" id="last" aria-describedby="last">
+                                            <input type="text" name="lname" value="<?php echo $lname; ?>" class="form-control" id="last" aria-describedby="last" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="address">Address <span>*</span></label>
-                                           <textarea class="form-control"  name="add" id="order" name="add" rows="3"><?php echo $address; ?></textarea>
+                                           <textarea class="form-control"  required name="add" id="order" name="add" rows="3"><?php echo $address; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="ctown">City / Town <span>*</span></label>
-                                            <input type="text" name="city" value="<?php echo $city; ?>" class="form-control" id="address2" aria-describedby="address" name="city">
+                                            <input type="text" name="city" value="<?php echo $city; ?>" class="form-control" required id="address2" aria-describedby="address" name="city">
                                         </div>
                                     </div>
                                       <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="pin">Pin Code <span>*</span></label>
-                                            <input type="text" name="pincode" value="<?php echo $pincode; ?>" class="form-control" id="last" aria-describedby="last">
+                                            <input type="text" required name="pincode" value="<?php echo $pincode; ?>" class="form-control" id="last" aria-describedby="last">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="email">Email <span>*</span></label>
-                                            <input type="email"  name="email" value="<?php echo $email; ?>" class="form-control" id="email" aria-describedby="email">
+                                            <input type="email" required name="email" value="<?php echo $email; ?>" class="form-control" id="email" aria-describedby="email">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="phone">Phone <span>*</span></label>
-                                            <input type="text" value="<?php echo $phone; ?>" class="form-control" name="phone" id="phone" aria-describedby="phone">
+                                            <input type="text" required value="<?php echo $phone; ?>" class="form-control" name="phone" id="phone" aria-describedby="phone">
                                         </div>
                                     </div>
                                 

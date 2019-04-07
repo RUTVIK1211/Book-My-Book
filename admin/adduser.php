@@ -105,7 +105,7 @@
                       <div class="form-group row">
                       <label for=" exampleInputUsername2" class="col-sm-3 col-form-label">DOB</label>
                       <div class="col-sm-9">
-                       <input type="date" name="dob" class="form-control" id="exampleInputUsername2" placeholder="Date Of Birth" required>
+                       <input type="date"  name="dob" class="form-control" id="exampleInputUsername2" placeholder="Date Of Birth" required>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>

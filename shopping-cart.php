@@ -1,4 +1,3 @@
-
 <?php 
     session_start();
    include_once 'connection.php';
@@ -12,9 +11,11 @@
         {
                global $total ;
                global $finaltotal;
+               global $flag;
 
                $total=0;
                $finaltotal=0;
+               $flag=0;
  ?>
  <?php 
  if(isset($_SESSION['user']))
@@ -84,6 +85,9 @@
                                     <?php 
                                         $finaltotal += $total;
                                         $_SESSION['amount'] = $finaltotal;
+                                        if ($finaltotal >=500) {
+                                            $flag=1;
+                                        }
                                     }
 
                                 ?>
@@ -114,6 +118,10 @@
                         <div class="total_amount_area">
                             <div class="cupon_box">
                                 <h3 class="cart_single_title">Discount Coupon</h3>
+                                <?php 
+                                    if ($flag==1) 
+                                    {
+                                ?>
                                 <form name="coupon" method="post" action="coupon_process.php" >
                                 <div class="cupon_box_inner">
                                     <input type="text" placeholder="Enter your code here" name="coupon" required="required">
@@ -121,6 +129,22 @@
                                     <button type="submit" name="submit" class="btn btn-primary subs_btn">Apply coupon</button>
                                 </div>
                                 </form>
+                                <?php 
+                                    }
+                                    else
+                                    {
+                                 ?>
+                                 <form name="coupon" method="post" action="coupon_process.php" >
+                                <div class="cupon_box_inner">
+                                    <input type="text" readonly onclick="show()" placeholder="Enter your code here" name="coupon" required="required">
+                                    <input type="hidden" name="amount" value="<?php echo $finaltotal; ?>">
+                                    <button type="submit"  disabled name="submit"  class="btn btn-primary subs_btn">Apply coupon</button>
+                                </div>
+                                </form>
+                                                    
+                                <?php 
+                                    }
+                                 ?>   
                             </div>
                             <div class="cart_totals">
                                 <h3 class="cart_single_title">Discount Coupon</h3>
@@ -163,6 +187,12 @@
                 </div>
             </div>
         </section>
+        <script type="text/javascript">
+            function show()
+            {
+                alert("Sorry 😭😭!! You are not eligible for discount");
+            }
+        </script>
         
         <!--================End Shopping Cart Area =================-->
         
@@ -185,6 +215,6 @@
     }
     if (isset($_GET['Success'])) 
     {
-            echo "<script>alert('Congratulations Bhikhari Discount Successfully Applied 👍👍')</script>";    
+            echo "<script>alert('Congratulations  Discount Successfully Applied 👍👍')</script>";    
     }
  ?>

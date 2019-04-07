@@ -22,7 +22,10 @@
               <div class="brand-logo">
                 <img src="images/logo.svg">
               </div>
-              <h4>Hello! Mother-Fucker </h4>
+              <?php if (isset($_GET['error'])): ?>
+                  <h4 style="color: red; font-family: comic sans ms;">Wrong Username Or Password</h4>
+              <?php endif ?>
+              <h4>Hello! Admin </h4>
               <h6 class="font-weight-light">Sign in to continue.</h6>
               <form class="pt-3" method="post" action="process/login_process.php">
                 <div class="form-group">

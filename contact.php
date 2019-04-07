@@ -31,7 +31,7 @@
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
                             <div class="media-body">
-                                <p>House # 402, Roboto Street,<br />New York, USA.</p>
+                                <p>204 Rudra Complex nr satellite ,Ahmedabad<br/>Gujrat,India.</p>
                             </div>
                         </div>
                     </div>
@@ -59,39 +59,33 @@
                     </div>
                 </div>
                 <div class="contact_form_inner">
+                    
                     <h3>Drop a Message</h3>
-                    <form class="contact_us_form row" action="" name="contact" method="post" id="contactForm" novalidate="novalidate">
+                    <?php if (isset($_GET['send'])): ?>
+                        <h4>Your Response has been Successfully Send</h4><br><br>
+                    <?php endif ?>
+                    <form class="contact_us_form row" action="contact_process.php" name="contact" method="post" id="contactForm" validate="validate">
                         <div class="form-group col-lg-4">
-                            <input type="text" class="form-control" onfocus="testinput()" id="name" name="name" placeholder="Full Name *">
+                            <input type="text" class="form-control"  id="name" name="name" placeholder="Full Name *" required>
                         </div>
                         <div class="form-group col-lg-4">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address *">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address *" required>
                         </div>
                         <div class="form-group col-lg-4">
-                            <input type="text" class="form-control" id="website" name="website" placeholder="Your Website">
+                            <input type="text" class="form-control" id="website" name="phone" placeholder="Phone No" required >
                         </div>
                         <div class="form-group col-lg-12">
-                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Type Your Message..."></textarea>
+                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Type Your Message..." required></textarea>
                         </div>
                         <div class="form-group col-lg-12">
-                            <button type="submit" value="submit"class="btn update_btn form-control">Send Message</button>
+                            <button type="submit" name="submit"  value="submit"class="btn update_btn form-control">Send Message</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
         <!--================End Contact Area =================-->
-        <script type="text/javascript">
-            function testinput()
-            {
-                var form=document.forms.contact
-                var name=form.name.value
-                if (name=="") {
-                    var temp=form.name;
-                        temp.setAttribute("class","form-control error");
-                }
-            }
-        </script>
+   
         <!--================Footer Area =================-->
      <?php 
      include_once 'footer.php';

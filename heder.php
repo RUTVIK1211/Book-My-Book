@@ -48,10 +48,12 @@
                     <div class="col-lg-3">
                         <div class="top_header_left">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+                                <form action="search.php" method="post">
+                                <input type="text" class="form-control" required placeholder="Search" aria-label="Search">
                                 <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="button"><i class="icon-magnifier"></i></button>
+                                <button class="btn btn-secondary" type="submit"><i class="icon-magnifier"></i></button>
                                 </span>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -128,7 +130,7 @@
                                  Categories<i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="compare.html">Competitive Exam </a></li>
+                                    <li class="nav-item"><a class="nav-link" href="competitive.php">Competitive Exam </a></li>
                                     <li class="nav-item"><a class="nav-link" href="404.html">Stander 1 TO 12</a></li>
                                     <li class="nav-item"><a class="nav-link" href="404.html">I.T. & Computer</a></li>
                                     <li class="nav-item"><a class="nav-link" href="checkout.html">Engineering Books</a></li>

@@ -1,11 +1,13 @@
 <?php 
 include_once 'connection.php';
 session_start();
-
+if(isset($conn))
+{
 	if (isset($_POST['submit'])) 
 	{
  		$code = $_POST['coupon'];
  		$amount = $_POST['amount'];
+ 		$code = strtolower($code);
  		$sql = "SELECT * FROM coupon where coupon='$code'";
  		$result = mysqli_query($conn, $sql) or die("error in query");
  		$count  = mysqli_num_rows($result) ;
@@ -27,4 +29,9 @@ session_start();
  			header("location: shopping-cart.php?error");
  		}
 	}
+}
+else
+{
+		header("location: 500.php");
+}
 ?>

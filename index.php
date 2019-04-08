@@ -393,6 +393,6 @@ if(isset($_SESSION['user']))
 }
 else
 {   
-    header("location: 503.php");
+    header("location: 500.php");
  }
  ?>

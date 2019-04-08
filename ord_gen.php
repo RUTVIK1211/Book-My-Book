@@ -41,13 +41,13 @@
     			}
     			else
     			{
-    				header("location: 503.php");
+    				header("location: 500.php");
     			}
 			
 			}
 			else
 			{
-				header("location: 503.php");
+				header("location: 500.php");
 			}
 		}
 	}

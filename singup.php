@@ -53,7 +53,7 @@
 	}
 	else
 	{
-		header("Location: index.php?error=503");
+		header("Location: 500.php");
 	}
 
 

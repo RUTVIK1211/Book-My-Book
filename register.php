@@ -123,7 +123,6 @@
                                             <input type="text" required value="<?php echo $phone; ?>" class="form-control" name="phone" id="phone" aria-describedby="phone">
                                         </div>
                                     </div>
-                                
                             </div>
                         </div>
                         <div class="col-lg-5">
@@ -210,7 +209,7 @@
         }
         else
         {
-            header("location: 503.php");
+            header("location: 500.php");
         }
         }
     else

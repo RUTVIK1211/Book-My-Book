@@ -7,7 +7,15 @@ include_once 'connection.php';
   session_start();
     include_once 'connection.php';
     include_once 'heder.php';
-         ?>
+        
+        $sql = ""
+ ?>
+    <section class="from_blog_area">
+            <div class="container">
+                <div class="from_blog_inner">
+                    <div class="c_main_title">
+                        <h2>Buy New-Book</h2>
+                    </div>
 <section class="no_sidebar_2column_area">
             <div class="container">
                 <div class="showing_fillter">

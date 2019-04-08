@@ -49,9 +49,9 @@
                         <div class="top_header_left">
                             <div class="input-group">
                                 <form action="search.php" method="post">
-                                <input type="text" class="form-control" required placeholder="Search" aria-label="Search">
+                                <input type="text" class="form-control" name="data"  required placeholder="Search" aria-label="Search">
                                 <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="submit"><i class="icon-magnifier"></i></button>
+                                <button class="btn btn-secondary" name="submit" type="submit"><i class="icon-magnifier"></i></button>
                                 </span>
                                 </form>
                             </div>
@@ -59,8 +59,8 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="top_header_middle">
-                            <a href="#"><i class="fa fa-phone"></i> Call Us: <span>+91 8347589695</span></a>
-                            <a href="#"><i class="fa fa-envelope"></i> Email: <span>help@bookmybook.com</span></a>
+                            <a href="tel:+918733005877"><i class="fa fa-phone"></i> Call Us: <span>+91 8733005877</span></a>
+                            <a href="mailto:bhimani.rutvik1211@gmail.com"><i class="fa fa-envelope"></i> Email: <span>help@bookmybook.com</span></a>
                             <a href="index.php"><i><img src="img/Logo.png" alt="BookMyBook"></i></a>
                         </div>
                     </div>
@@ -75,6 +75,7 @@
                             </ul>
                             <ul class="top_right">
                                 <?php 
+                               
                                     if (isset($_SESSION['user'])) 
                                     {
                                     echo "  <li class='user' id='tool1' data-toggle='toolti' title='Login' data-placement='auto'><a href='login.php' ><i class='icon-user icons'></i></a></li>
@@ -84,11 +85,12 @@
                                     }
                                     else
                                     {
-                                      echo "  <li class='user' id='tool' data-toggle='toolti' title='Login' data-placement='auto'><a href='login.php' ><i class='icon-user icons'></i></a></li>
+                                      echo "<li class='user' id='tool' data-toggle='toolti' title='Login' data-placement='auto'><a href='login.php' ><i class='icon-user icons'></i></a></li>
                                 <li class='cart' id='tool'><a href='shopping-cart.php'><i class='icon-handbag icons'></i></a></li>
                                 <li class='h_price'>    
                                 </li>";
                                     }
+
                                  ?>
                                 
                             </ul>
@@ -104,7 +106,7 @@
             <div class="container">
                 <n
                 av class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#"><img src="img/fav-icon.png" alt="bookmybook"></a>
+                    <a class="navbar-brand" href="index.php"><img src="img/fav-icon.png" alt="bookmybook"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -152,7 +154,7 @@
                             </li>
                             <li class="nav-item"><a class="nav-link" href="#">Genral Knowlage</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Tutoriyal</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">About us </a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.php">About us </a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                         </ul>
                     </div>

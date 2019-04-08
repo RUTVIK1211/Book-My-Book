@@ -1,4 +1,8 @@
 <?php
-	$conn = mysqli_connect("localhost","root","","bookmybooktest") or die("Connection error");
+	$conn = mysqli_connect("localhost","root","","bookmybooktest");
+	if (!isset($conn)) 
+	{
+		header("location: 500.php");
+	}
  ?>
  

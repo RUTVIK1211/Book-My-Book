@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2019 at 06:09 PM
+-- Generation Time: Apr 08, 2019 at 04:02 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `book` (
   `b_id` int(255) NOT NULL,
-  `b_name` varchar(40) DEFAULT NULL,
+  `b_name` varchar(40) NOT NULL,
   `b_publisher` varchar(40) DEFAULT NULL,
   `b_edition` varchar(10) DEFAULT NULL,
   `b_isbn` varchar(10) DEFAULT NULL,
@@ -38,16 +38,23 @@ CREATE TABLE `book` (
   `b_price` bigint(255) DEFAULT NULL,
   `b_img` varchar(50) NOT NULL DEFAULT 'error',
   `b_author` varchar(40) DEFAULT NULL,
-  `b_description` varchar(255) DEFAULT NULL
+  `b_description` varchar(255) DEFAULT NULL,
+  `b_category` varchar(56) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`b_id`, `b_name`, `b_publisher`, `b_edition`, `b_isbn`, `b_page`, `b_price`, `b_img`, `b_author`, `b_description`) VALUES
-(6, 'asda as ', 'asd', 'asd', 'asd', 123, 123, 'book/asda as.jpg', 'asd', 'asd'),
-(7, 'science', 'ncet', '2018-2019', '2351058', 125, 4500, 'book/science.jpg', 'asd', 'reefsdfasdfsda sdfdfad');
+INSERT INTO `book` (`b_id`, `b_name`, `b_publisher`, `b_edition`, `b_isbn`, `b_page`, `b_price`, `b_img`, `b_author`, `b_description`, `b_category`) VALUES
+(7, 'science', 'ncet', '2018-2019', '2351058', 125, 4500, 'book/science.jpg', 'asd', 'reefsdfasdfsda sdfdfad', '10th'),
+(8, 'test', 'test', 'test', '231', 132, 122, 'book/test.jpg', 'asda', 'asdasdasdasda asd as das', '11th'),
+(9, 'maths', 'ncert', '1047', 'q13212', 123, 123, 'book/maths.jpg', 'asdas', 'asdas asd asdasdasdas', '12th'),
+(10, 'chemistri', '2me', 'me', 'mr', 134, 344, 'book/chemistri.jpg', 'me', 'fucking sell the chemistry book.php\r\n', 'genral'),
+(11, 'physis', 'ncert', '2047', '8478931274', 238, 150, 'book/physis.jpg', 'rutvik', '', 'it'),
+(12, 'sita', 'sita ', 'latres', '3472846827', 123, 400, 'book/sita.jpg', 'rutvik', '7 rings', 'Engineering'),
+(13, 'aadhar ', 'namrendra', '2019', '324789237', 450, 500, 'book/aadhar.jpg', 'Narendra Modi', 'this book is written by prime minister of india', 'compatitive'),
+(14, 'Tesla ', 'Bookmybook', '2016', '146516516', 150, 1500, 'book/Tesla.jpg', 'Elon Musk', 'the story of tesla', 'genral');
 
 -- --------------------------------------------------------
 
@@ -73,9 +80,8 @@ INSERT INTO `cart` (`cart_id`, `b_id`, `c_id`, `product_name`, `quantity`, `pric
 (13, 6, 1, 'asda as ', 6, 123, 'book/asda as.jpg'),
 (14, 7, 1, 'science', 3, 4500, 'book/science.jpg'),
 (15, 6, 4, 'asda as ', 1, 123, 'book/asda as.jpg'),
-(19, 7, 8, 'science', 1, 4500, 'book/science.jpg'),
 (21, 6, 9, 'asda as ', 1, 123, 'book/asda as.jpg'),
-(22, 6, 8, 'asda as ', 1, 123, 'book/asda as.jpg');
+(24, 7, 8, 'science', 1, 4500, 'book/science.jpg');
 
 -- --------------------------------------------------------
 
@@ -95,10 +101,10 @@ CREATE TABLE `coupon` (
 
 INSERT INTO `coupon` (`co_id`, `coupon`, `amount`) VALUES
 (15, '#LEGENDARY_RV', '150'),
-(16, '#RVBHUMI', '1000000'),
 (18, '#LEGENDARY_AMAN ', '100'),
 (19, '#LEGENDARY_PAAVAN ', '100'),
-(20, '#PHENOMENALAJ', '100');
+(20, '#PHENOMENALAJ', '100'),
+(21, '#welcome_bookmybook', '257');
 
 -- --------------------------------------------------------
 
@@ -126,8 +132,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`C_id`, `F_name`, `L_name`, `Username`, `Password`, `Address`, `City`, `State`, `Pincode`, `Phone`, `Email`, `Dob`) VALUES
-(8, 'Rutvik', 'Bhimani', 'rutvik', 'admin', 'this is an address', 'ahmedabad ', 'Gujrat', '382415', '8733005877', 'bhimani.rutvik1211@gmail.com', '2000-09-03'),
-(9, 'admin', 'admin', 'admin', 'admin123', 'this is an admin address', 'ahmedabad', 'Gujrat', '382415', '9924226629', 'admin@gmail.com', '2000-09-03');
+(3, 'Rutvik ', 'Bhimani', 'Rutvik', 'admin123', '16 girikunj soc', 'Ahmeadabad', 'Gujrat', '382415', '8347589695', 'bhimani.rutvik1211@gmail.com', '2000-09-03');
 
 -- --------------------------------------------------------
 
@@ -146,8 +151,35 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`Login_id`, `Username`, `Password`) VALUES
-(8, 'rutvik', '21232f297a57a5a743894a0e4a801fc3'),
-(9, 'admin', '0192023a7bbd73250516f069df18b500');
+(3, 'Rutvik', '0192023a7bbd73250516f069df18b500');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_master`
+--
+
+CREATE TABLE `order_master` (
+  `O_id` int(150) NOT NULL,
+  `C_id` bigint(150) NOT NULL,
+  `Username` varchar(25) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Phone` varchar(12) NOT NULL,
+  `Address` varchar(150) NOT NULL,
+  `City` varchar(25) NOT NULL,
+  `O_date` varchar(25) NOT NULL,
+  `Pincode` bigint(10) NOT NULL,
+  `Netprice` bigint(102) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_master`
+--
+
+INSERT INTO `order_master` (`O_id`, `C_id`, `Username`, `Name`, `Phone`, `Address`, `City`, `O_date`, `Pincode`, `Netprice`) VALUES
+(1, 8, 'rutvik', 'Rutvik', '8733005877', 'this is an address', 'ahmedabad ', '05-04-2019', 382415, 22650),
+(2, 3, 'Rutvik', 'Rutvik ', '8347589695', '16 girikunj soc', 'Ahmeadabad', '06-04-2019', 382415, 122),
+(3, 3, 'Rutvik', 'Rutvik ', '8347589695', '16 girikunj soc', 'Ahmeadabad', '07-04-2019', 382415, 17850);
 
 --
 -- Indexes for dumped tables
@@ -176,6 +208,7 @@ ALTER TABLE `coupon`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`C_id`),
+  ADD UNIQUE KEY `Username` (`Username`),
   ADD UNIQUE KEY `Index 2` (`Email`),
   ADD UNIQUE KEY `Email` (`Email`),
   ADD KEY `C_id` (`C_id`);
@@ -187,6 +220,12 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`Login_id`);
 
 --
+-- Indexes for table `order_master`
+--
+ALTER TABLE `order_master`
+  ADD PRIMARY KEY (`O_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -194,31 +233,37 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `b_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `b_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `cart_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `coupon`
 --
 ALTER TABLE `coupon`
-  MODIFY `co_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `co_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `C_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `C_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `Login_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Login_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `order_master`
+--
+ALTER TABLE `order_master`
+  MODIFY `O_id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

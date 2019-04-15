@@ -216,5 +216,5 @@
     if (isset($_GET['Success'])) 
     {
             echo "<script>alert('Congratulations  Discount Successfully Applied 👍👍')</script>";    
-    }
+    }   
  ?>

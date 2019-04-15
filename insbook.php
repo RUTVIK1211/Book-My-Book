@@ -74,11 +74,8 @@
 
 	if (isset($_POST['submit'])) 
 	{
-		
-        $img=$_FILES['img'];
 		$name =$_POST['name'];
 		$newname =trim($name);
-		var_dump($newname);
 		$publisher = $_POST['publisher'];
 		$edition = $_POST['edition'];
 		$isbn = $_POST['isbn'];
@@ -88,6 +85,7 @@
 		$description = $_POST['description'];
 		$path = '';
 
+		$img=$_FILES['img'];
 		$fname = $img['name'];
 		$ftype = $img['type'];
 		$ftname = $img['tmp_name'];
@@ -133,11 +131,10 @@
 		{
 			echo "<script>alert('Data Insert Successfull')</script>";
 		}
-
+		
 		else 
 		{
 			echo "<script>alert('Somthing Went Wrong')</script>";
-
 		}
 	}
  ?>

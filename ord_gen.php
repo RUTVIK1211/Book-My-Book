@@ -26,6 +26,7 @@
     			
     			if (isset($conn)) 
     			{
+    				
     			
     				$sql ="INSERT INTO order_master(O_id,C_id,Username,Name,Phone,Address,City,O_date,Pincode,Netprice) VALUES(0,$userid,'$user','$name','$phone','$add','$city','$date',$pincode,$amount);";
 
@@ -38,6 +39,7 @@
     					$sql1 = "DELETE FROM cart WHERE c_id=$userid";
     					$result1 = mysqli_query($conn,$sql1);
     				}
+    				unset($_SESSION['amount']);
     			}
     			else
     			{

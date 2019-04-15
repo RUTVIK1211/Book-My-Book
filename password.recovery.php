@@ -1,7 +1,7 @@
 <?php 
 	include_once 'heder.php';
  ?>
-    <section class="from_blog_area">
+<section class="from_blog_area">
             <div class="container">
                 <div class="from_blog_inner">
                     <div class="c_main_title">
@@ -59,15 +59,13 @@
                 }
                 else
                 {
-                     header("location: 503.php");        
+                     echo "<script>alert('Somthing Went wrong')</script>";     
                 }
              } 
-            
              catch (Exception $e) 
              {
                 echo "Error : ".$e->getMessage();    
              }
-
            }
            else
            {

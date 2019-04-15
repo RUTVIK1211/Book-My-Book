@@ -28,8 +28,8 @@
             </a>
             <div class="collapse" id="ui-cate1">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="addcategory.php">Add books</a></li>
-                <li class="nav-item"> <a class="nav-link" href="veiwcategory.php">View books</a></li>
+                <li class="nav-item"> <a class="nav-link" href="addbook.php">Add books</a></li>
+                <li class="nav-item"> <a class="nav-link" href="view_book.php">View books</a></li>
               </ul>
             </div>
           </li>

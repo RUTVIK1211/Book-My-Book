@@ -3,7 +3,7 @@
     include_once 'connection.php';
     if (isset($_SESSION['user'])) 
     {  
-        if (isset($conn)) 
+        if (isset($conn) AND isset($_SESSION['amount'])) 
         {
  ?>
 <?php 

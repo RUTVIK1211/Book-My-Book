@@ -2,20 +2,8 @@
 	include_once 'heder.php';
 ?>
         
-        <!--================End Menu Area =================-->
+       
         
-        <!--================Categories Banner Area =================-->
-        <section class="solid_banner_area">
-            <div class="container">
-                <div class="solid_banner_inner">
-                    <h3>error page</h3>
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="503.php">Error Page</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
         <!--================End Categories Banner Area =================-->
         
         <!--================login Area =================-->
